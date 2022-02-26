@@ -5,29 +5,18 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    public float smoothing = 0.1f;
-    public Vector2 minPosition;
-    public Vector2 maxPosition;
-    // Start is called before the first frame update
-    void Start()
+    [Range(0,10)]
+    public float smoothing = 5f;
+    public Vector3 offset;
+    //public Vector2 minPosition;
+    //public Vector2 maxPosition;
+
+    private void FixedUpdate()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void LateUpdate(){
-        if(target != null){
-            if(transform.position != target.position){
-                Vector3 targetPos = target.position;
-                targetPos.x = Mathf.Clamp(targetPos.x, minPosition.x, maxPosition.x);
-                targetPos.y = Mathf.Clamp(targetPos.y, minPosition.y, maxPosition.y);
-                transform.position = Vector3.Lerp(transform.position, targetPos, smoothing);
-            }
-        }
+        Vector3 targetPos = target.position + offset;
+        //targetPos.x = Mathf.Clamp(targetPos.x, minPosition.x, maxPosition.x);
+        //targetPos.y = Mathf.Clamp(targetPos.y, minPosition.y, maxPosition.y);
+        Vector3 smoothPos = Vector3.Lerp(transform.position, targetPos, smoothing * Time.fixedDeltaTime);
+        transform.position = smoothPos;
     }
 }

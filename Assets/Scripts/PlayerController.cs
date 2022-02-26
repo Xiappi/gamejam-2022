@@ -10,34 +10,43 @@ public class PlayerController : MonoBehaviour
     private BoxCollider2D myFeet;
     private bool isGround;
 
-    void Start(){
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
         myFeet = GetComponent<BoxCollider2D>();
     }
     void Update()
     {
-        Run();
         Jump();
     }
+    void FixedUpdate()
+    {
+        Run();
+    }
 
-    void Run(){
-        float moveDir = Input.GetAxis("Horizontal");
+    void Run()
+    {
+        float moveDir = Input.GetAxisRaw("Horizontal");
         Vector2 PlayerVel = new Vector2(moveDir * moveSpeed, rb.velocity.y);
         rb.velocity = PlayerVel;
     }
 
-    void Jump(){
-         if(Input.GetButtonDown("Jump")){
+    void Jump()
+    {
+        if (Input.GetButtonDown("Jump"))
+        {
             CheckGrounded();
-            if(isGround){
-                Vector2 jumVel = new Vector2(0.0f,JumpSpeed);
+            if (isGround)
+            {
+                Vector2 jumVel = new Vector2(0.0f, JumpSpeed);
                 rb.velocity = Vector2.up * jumVel;
             }
 
-         }
+        }
     }
 
-    void CheckGrounded(){
+    void CheckGrounded()
+    {
         isGround = myFeet.IsTouchingLayers(LayerMask.GetMask("Ground"));
     }
 
