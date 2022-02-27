@@ -15,11 +15,8 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private LivesController livesController;
 
-    private bool canMove = true;
-    private bool canJump = true;
-
-    private bool onGround;
-
+    public bool canMove = true;
+    private int jumpTime;
     private const float _hitTimeout = 0.5f;
     private const float _reloadDelay = 3f;
     void Start()
@@ -75,12 +72,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            if (canJump && onGround && canMove)
+            if (jumpTime<1 && canMove)
             {
-                canJump = false;
+                jumpTime += 1;
                 Vector2 jumVel = new Vector2(0.0f, JumpSpeed);
                 rb.velocity = Vector2.up * jumVel;
-
                 animator.SetTrigger("Jump");
             }
 
@@ -94,13 +90,11 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            onGround = true;
-            canJump = true;
+            jumpTime = 0;
             animator.SetBool("Grounded", true);
         }
         else
         {
-            onGround = false;
             animator.SetBool("Grounded", false);
         }
     }
@@ -124,7 +118,6 @@ public class PlayerController : MonoBehaviour
 
         // player dies
         LevelFailed();
-
     }
 
     private void LevelFailed()
@@ -134,17 +127,16 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(ReloadScene());
     }
 
-
-    private IEnumerator knockbackTimer()
-    {
-        yield return new WaitForSeconds(_hitTimeout);
-        canMove = true;
-    }
-
     private IEnumerator ReloadScene()
     {
         yield return new WaitForSeconds(_reloadDelay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator knockbackTimer()
+    {
+        yield return new WaitForSeconds(_hitTimeout);
+        canMove = true;
     }
 
 }
