@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Trap : MonoBehaviour
 {
-
-    [SerializeField] float moveSpeed = 1f;
     [SerializeField] float XRebound = 10f;
     [SerializeField] float YRebound = 10f;
 
@@ -31,21 +29,13 @@ public class Trap : MonoBehaviour
         var vector = new Vector2(XRebound * Mathf.Sign(direction), YRebound);
         playerRb.velocity = vector;
 
-        playerController.CanMove = false;
+        playerController.canMove = false;
         playerController.TakeDamage();
-        StartCoroutine(knockbackTimer(0.5f, playerController));
 
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.tag == "Player" )
             DealDamage(other); 
-    }
-    
-
-    IEnumerator knockbackTimer(float x, PlayerController pc)
-    {
-        yield return new WaitForSeconds(x);
-        pc.CanMove = true;
     }
 }

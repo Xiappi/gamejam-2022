@@ -13,13 +13,12 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
     private Rigidbody2D rb;
-    private bool onGround;
     private LivesController livesController;
-    private EnemyMovement trap;
 
-    public bool CanMove = true;
-    private bool canJump = true;
+    public bool canMove = true;
     private int jumpTime;
+    private const float _hitTimeout = 0.5f;
+    private const float _reloadDelay = 3f;
     void Start()
     {
 
@@ -34,7 +33,6 @@ public class PlayerController : MonoBehaviour
         GroundDetection();
         FallingDetection();
     }
-     
     void FixedUpdate()
     {
         Run();
@@ -54,7 +52,8 @@ public class PlayerController : MonoBehaviour
 
     void Run()
     {
-        if (!CanMove) return;
+        Debug.Log(canMove);
+        if (!canMove) return;
 
         float moveDir = Input.GetAxisRaw("Horizontal");
         Vector2 PlayerVel = new Vector2(moveDir * moveSpeed, rb.velocity.y);
@@ -74,12 +73,11 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            if (jumpTime<1)
+            if (jumpTime<1 && canMove)
             {
                 jumpTime += 1;
                 Vector2 jumVel = new Vector2(0.0f, JumpSpeed);
                 rb.velocity = Vector2.up * jumVel;
-
                 animator.SetTrigger("Jump");
             }
 
@@ -98,7 +96,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            onGround = false;
             animator.SetBool("Grounded", false);
         }
     }
@@ -111,8 +108,35 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        if (livesController.UpdateLives(-1) <= 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // player still has lives
+        if (livesController.UpdateLives(-1) > 0)
+        {
+            canMove = false;
+            StartCoroutine(knockbackTimer());
+            return;
+        }
+
+        // player dies
+        LevelFailed();
+    }
+
+    private void LevelFailed()
+    {
+        canMove = false;
+        animator.SetTrigger("Death");
+        StartCoroutine(ReloadScene());
+    }
+
+    private IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(_reloadDelay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    IEnumerator knockbackTimer()
+    {
+        yield return new WaitForSeconds(_hitTimeout);
+        canMove = true;
     }
 
 }
