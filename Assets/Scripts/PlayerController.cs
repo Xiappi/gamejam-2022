@@ -14,20 +14,21 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     private LivesController livesController;
-
-    private bool canMove = true;
-    private bool canJump = true;
-
-    private bool onGround;
-
+    private BoxCollider2D attackHitbox;
+    private Knockback knockback;
+    public bool canMove = true;
+    private int jumpTime;
     private const float _hitTimeout = 0.5f;
     private const float _reloadDelay = 3f;
+    public int keyNumber = 0;
     void Start()
     {
 
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         livesController = FindObjectOfType<LivesController>();
+        attackHitbox = GetComponentInChildren<BoxCollider2D>();
+        knockback = GetComponent<Knockback>();
 
     }
     void Update()
@@ -39,6 +40,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Run();
+        Attack();
 
         float playerSpeed = Mathf.Abs(rb.velocity.x);
 
@@ -73,14 +75,16 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        if (!canMove)
+            return;
+
         if (Input.GetButtonDown("Jump"))
         {
-            if (canJump && onGround && canMove)
+            if (jumpTime < 1)
             {
-                canJump = false;
+                jumpTime += 1;
                 Vector2 jumVel = new Vector2(0.0f, JumpSpeed);
                 rb.velocity = Vector2.up * jumVel;
-
                 animator.SetTrigger("Jump");
             }
 
@@ -94,13 +98,11 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            onGround = true;
-            canJump = true;
+            jumpTime = 0;
             animator.SetBool("Grounded", true);
         }
         else
         {
-            onGround = false;
             animator.SetBool("Grounded", false);
         }
     }
@@ -111,19 +113,27 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("AirSpeedY", airSpeedHorizontal);
     }
 
-    public void TakeDamage()
+    /* 
+        Returns true if the player took damage, false otherwise
+    */
+    public bool TakeDamage()
     {
+        // can only take damage when player is in control
+        if (!canMove)
+            return false;
+
         // player still has lives
         if (livesController.UpdateLives(-1) > 0)
         {
             canMove = false;
+            animator.SetTrigger("Hurt");
             StartCoroutine(knockbackTimer());
-            return;
+            return true;
         }
 
         // player dies
         LevelFailed();
-
+        return true;
     }
 
     private void LevelFailed()
@@ -133,17 +143,42 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(ReloadScene());
     }
 
-
-    private IEnumerator knockbackTimer()
-    {
-        yield return new WaitForSeconds(_hitTimeout);
-        canMove = true;
-    }
-
     private IEnumerator ReloadScene()
     {
         yield return new WaitForSeconds(_reloadDelay);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    IEnumerator knockbackTimer()
+    {
+        yield return new WaitForSeconds(_hitTimeout);
+        canMove = true;
+    }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Debug.Log("Attack");
+            attackHitbox.enabled = true;
+            StartCoroutine(attackTimer());
+            // animator.SetTrigger("Attack1");
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag != "Enemy") return;
+
+        // var enemy = other.GetComponent<EnemyMovement>();
+
+        // enemy.TakeDamage();
+        // knockback.KnockbackEntity(rb, enemy.GetComponent<Rigidbody2D>());
+    }
+
+    IEnumerator attackTimer()
+    {
+        yield return new WaitForSeconds(0.3f);
+        attackHitbox.enabled = false;
+    }
 }

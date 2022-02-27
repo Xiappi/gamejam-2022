@@ -1,25 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Player : MonoBehaviour
+public class KeyUI : MonoBehaviour
 {
-    public int health;
+    public Text keyText;
 
     // Start is called before the first frame update
     void Start()
     {
-        //MouseFacing();
-
-
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
-        {
-            Debug.Log("Attack");
-        }
+        int keys = FindObjectOfType<PlayerController>().keyNumber;
+        keyText.text = "x " + keys;
     }
 }

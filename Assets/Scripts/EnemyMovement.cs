@@ -5,48 +5,99 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 1f;
-    [SerializeField] float XRebound = 10f;
-    [SerializeField] float YRebound = 10f;
 
+    [SerializeField] int health = 2;
     Rigidbody2D rb;
+    private BoxCollider2D head;
+    private Animator anim;
+
+    private bool isDead = false;
+    private Knockback knockback;
+    private EdgeCollider2D edgeDetection;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        knockback = GetComponent<Knockback>();
+
+        head = GetComponentInChildren<BoxCollider2D>();
+        edgeDetection = GetComponentInChildren<EdgeCollider2D>();
     }
 
     void Update()
     {
-        rb.velocity = new Vector2(moveSpeed * transform.localScale.x, 0);
+        if (!isDead)
+        {
+            rb.velocity = new Vector2(moveSpeed * transform.localScale.x, 0);
+        }
+        else
+        {
+            rb.velocity = new Vector2(0, 0);
+        }
+        anim.SetFloat("Speed", rb.velocity.magnitude);
     }
 
+    void FixedUpdate()
+    {
+        if (!edgeDetection.IsTouchingLayers(LayerMask.GetMask("Ground")))
+            ChangeDirection();
+    }
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Player") return;
+    }
 
-
-        moveSpeed = -moveSpeed;
+    private void ChangeDirection()
+    {
         transform.localScale = new Vector2(-Mathf.Sign(rb.velocity.x), 1f);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !head.IsTouchingLayers(LayerMask.GetMask("Player")))
             DealDamage(other);
+
+        if (head.IsTouchingLayers(LayerMask.GetMask("Player")))
+        {
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10f;
+            anim.SetTrigger("Death");
+            isDead = true;
+            Destroy(gameObject, 2);
+        }
 
     }
 
-    private void DealDamage(Collision2D other)
+
+    public void DealDamage(Collision2D other)
     {
+        if (isDead) return;
+
+        anim.SetTrigger("Attack");
         var playerRb = other.gameObject.GetComponent<Rigidbody2D>();
         var playerController = other.gameObject.GetComponent<PlayerController>();
 
-        var direction = Mathf.Abs(rb.worldCenterOfMass.x) - Mathf.Abs(playerRb.worldCenterOfMass.x);
-        var vector = new Vector2(XRebound * Mathf.Sign(direction), YRebound);
-        playerRb.velocity = vector;
-
-        playerController.TakeDamage();
+        if (playerController.TakeDamage())
+        {
+            head.enabled = false;
+            anim.SetTrigger("Attack");
+            StartCoroutine(DisableHead());
+            knockback.KnockbackEntity(rb, playerRb);
+        }
 
     }
 
+    // attacking and head collision is causing issues, hacky fix
+    private IEnumerator DisableHead()
+    {
+        yield return new WaitForSeconds(0.3f);
+        head.enabled = true;
+    }
+
+    public void TakeDamage()
+    {
+        health--;
+    }
 
 }
