@@ -117,6 +117,7 @@ public class PlayerController : MonoBehaviour
         if (livesController.UpdateLives(-1) > 0)
         {
             canMove = false;
+            animator.SetTrigger("Hurt");
             StartCoroutine(knockbackTimer());
             return;
         }
