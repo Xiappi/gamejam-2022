@@ -11,6 +11,8 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody2D rb;
     private BoxCollider2D head;
     private Animator anim;
+
+    private bool isDead = false;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,7 +22,13 @@ public class EnemyMovement : MonoBehaviour
 
     void Update()
     {
-        rb.velocity = new Vector2(moveSpeed * transform.localScale.x, 0);
+        if (!isDead)
+        {
+            rb.velocity = new Vector2(moveSpeed * transform.localScale.x, 0);
+        } else
+        {
+            rb.velocity = new Vector2(0,0);
+        }
         anim.SetFloat("Speed", rb.velocity.magnitude);
     }
 
@@ -37,14 +45,21 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" && !head.IsTouchingLayers(LayerMask.GetMask("Player")))
             DealDamage(other);
-        
-        if (head.IsTouchingLayers(LayerMask.GetMask("Player")))
-            Destroy(gameObject);
 
+        if (head.IsTouchingLayers(LayerMask.GetMask("Player")))
+        {
+            other.gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.up * 10f;
+            anim.SetTrigger("Death");
+            isDead = true;
+            Destroy(gameObject, 2);
+        }
+            
     }
 
     public void DealDamage(Collision2D other)
     {
+        if (isDead) return;
+
         anim.SetTrigger("Attack");
         var playerRb = other.gameObject.GetComponent<Rigidbody2D>();
         var playerController = other.gameObject.GetComponent<PlayerController>();
