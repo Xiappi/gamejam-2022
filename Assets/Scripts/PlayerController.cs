@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool onGround;
 
     private const float _hitTimeout = 0.5f;
+    private const float _reloadDelay = 3f;
     void Start()
     {
 
@@ -121,14 +122,28 @@ public class PlayerController : MonoBehaviour
         }
 
         // player dies
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        LevelFailed();
 
     }
 
-    IEnumerator knockbackTimer()
+    private void LevelFailed()
+    {
+        canMove = false;
+        animator.SetTrigger("Death");
+        StartCoroutine(ReloadScene());
+    }
+
+
+    private IEnumerator knockbackTimer()
     {
         yield return new WaitForSeconds(_hitTimeout);
         canMove = true;
+    }
+
+    private IEnumerator ReloadScene()
+    {
+        yield return new WaitForSeconds(_reloadDelay);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 }
