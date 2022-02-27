@@ -15,17 +15,21 @@ public class TrappedSheep : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.E) && canOpen){
+        if (Input.GetKeyDown(KeyCode.E) && canOpen)
+        {
+
             FindObjectOfType<LivesController>().UpdateLives(1);
             player.GetComponent<PlayerController>().keyNumber -= 1;
+            FindObjectOfType<SoundController>().PlaySheepSavedSound();
             Destroy(gameObject);
-        }        
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (player.GetComponent<PlayerController>().keyNumber>0){
+        if (player.GetComponent<PlayerController>().keyNumber > 0)
+        {
             canOpen = true;
         }
-            
+
     }
 }

@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     private LivesController livesController;
     private BoxCollider2D attackHitbox;
     private Knockback knockback;
+    private SoundController soundController;
     public bool canMove = true;
     private int jumpTime;
     private const float _hitTimeout = 0.5f;
@@ -29,6 +30,7 @@ public class PlayerController : MonoBehaviour
         livesController = FindObjectOfType<LivesController>();
         attackHitbox = GetComponentInChildren<BoxCollider2D>();
         knockback = GetComponent<Knockback>();
+        soundController = FindObjectOfType<SoundController>();
 
     }
     void Update()
@@ -122,6 +124,7 @@ public class PlayerController : MonoBehaviour
         if (!canMove)
             return false;
 
+        soundController.PlayDeathSound();
         // player still has lives
         if (livesController.UpdateLives(-1) > 0)
         {
@@ -162,7 +165,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Attack");
             attackHitbox.enabled = true;
             StartCoroutine(attackTimer());
-            // animator.SetTrigger("Attack1");
+            animator.SetTrigger("Attack1");
+            soundController.PlayAttackSound();
         }
     }
 
@@ -181,4 +185,5 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(0.3f);
         attackHitbox.enabled = false;
     }
+
 }
