@@ -2,48 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class Trap : MonoBehaviour
 {
+
     [SerializeField] float moveSpeed = 1f;
     [SerializeField] float XRebound = 10f;
     [SerializeField] float YRebound = 10f;
 
     Rigidbody2D rb;
-    private BoxCollider2D head;
+    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        head = GetComponent<BoxCollider2D>();
     }
 
+    // Update is called once per frame
     void Update()
     {
-        rb.velocity = new Vector2(moveSpeed * transform.localScale.x, 0);
-    }
-
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.tag == "Player") return;
-
-
-        moveSpeed = -moveSpeed;
-        transform.localScale = new Vector2(-Mathf.Sign(rb.velocity.x), 1f);
-    }
-
-    void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Player" && !head.IsTouchingLayers(LayerMask.GetMask("Player")))
-            DealDamage(other);
         
-        if (head.IsTouchingLayers(LayerMask.GetMask("Player")))
-            Destroy(gameObject);
-
     }
 
-    public void DealDamage(Collision2D other)
+    public void DealDamage(Collider2D other)
     {
-        //TODO: reduce health/sheep
-
         var playerRb = other.gameObject.GetComponent<Rigidbody2D>();
         var playerController = other.gameObject.GetComponent<PlayerController>();
 
@@ -56,11 +36,16 @@ public class EnemyMovement : MonoBehaviour
         StartCoroutine(knockbackTimer(0.5f, playerController));
 
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.tag == "Player" )
+            DealDamage(other); 
+    }
+    
 
     IEnumerator knockbackTimer(float x, PlayerController pc)
     {
         yield return new WaitForSeconds(x);
         pc.CanMove = true;
     }
-
 }

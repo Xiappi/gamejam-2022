@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private bool onGround;
     private LivesController livesController;
+    private EnemyMovement trap;
 
     public bool CanMove = true;
     private bool canJump = true;
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
         GroundDetection();
         FallingDetection();
     }
+     
     void FixedUpdate()
     {
         Run();

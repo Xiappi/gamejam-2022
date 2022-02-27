@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int health;
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -22,4 +22,6 @@ public class Player : MonoBehaviour
             Debug.Log("Attack");
         }
     }
+
+    
 }
