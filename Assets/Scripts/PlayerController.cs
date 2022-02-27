@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private int jumpTime;
     private const float _hitTimeout = 0.5f;
     private const float _reloadDelay = 3f;
+    public int keyNumber = 0;
     void Start()
     {
 
