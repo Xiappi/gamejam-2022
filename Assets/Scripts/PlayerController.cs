@@ -52,7 +52,6 @@ public class PlayerController : MonoBehaviour
 
     void Run()
     {
-        Debug.Log(canMove);
         if (!canMove) return;
 
         float moveDir = Input.GetAxisRaw("Horizontal");
@@ -112,6 +111,7 @@ public class PlayerController : MonoBehaviour
         if (livesController.UpdateLives(-1) > 0)
         {
             canMove = false;
+            animator.SetTrigger("Hurt");
             StartCoroutine(knockbackTimer());
             return;
         }
