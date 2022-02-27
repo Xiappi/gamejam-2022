@@ -9,9 +9,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float YRebound = 10f;
 
     Rigidbody2D rb;
+    private BoxCollider2D head;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        head = GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -30,11 +32,11 @@ public class EnemyMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !head.IsTouchingLayers(LayerMask.GetMask("Player")))
             DealDamage(other);
-
-
-
+        
+        if (head.IsTouchingLayers(LayerMask.GetMask("Player")))
+            Destroy(gameObject);
 
     }
 
