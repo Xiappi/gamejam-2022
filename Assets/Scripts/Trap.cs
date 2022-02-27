@@ -24,8 +24,6 @@ public class Trap : MonoBehaviour
         var playerController = other.gameObject.GetComponent<PlayerController>();
 
         knockback.KnockbackEntity(rb, playerRb);
-
-        playerController.canMove = false;
         playerController.TakeDamage();
 
     }

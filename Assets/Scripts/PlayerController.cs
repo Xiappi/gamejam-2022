@@ -125,11 +125,11 @@ public class PlayerController : MonoBehaviour
             return false;
 
         soundController.PlayDeathSound();
+        animator.SetTrigger("Hurt");
         // player still has lives
         if (livesController.UpdateLives(-1) > 0)
         {
             canMove = false;
-            animator.SetTrigger("Hurt");
             StartCoroutine(knockbackTimer());
             return true;
         }
