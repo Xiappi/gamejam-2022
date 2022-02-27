@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Rigidbody2D rb;
     private LivesController livesController;
-
+    private BoxCollider2D attackHitbox;
+    private Knockback knockback;
     public bool canMove = true;
     private int jumpTime;
     private const float _hitTimeout = 0.5f;
@@ -26,6 +27,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         livesController = FindObjectOfType<LivesController>();
+        attackHitbox = GetComponentInChildren<BoxCollider2D>();
+        knockback = GetComponent<Knockback>();
 
     }
     void Update()
@@ -72,9 +75,12 @@ public class PlayerController : MonoBehaviour
 
     void Jump()
     {
+        if (!canMove)
+            return;
+
         if (Input.GetButtonDown("Jump"))
         {
-            if (jumpTime<1 && canMove)
+            if (jumpTime < 1)
             {
                 jumpTime += 1;
                 Vector2 jumVel = new Vector2(0.0f, JumpSpeed);
@@ -107,19 +113,27 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("AirSpeedY", airSpeedHorizontal);
     }
 
-    public void TakeDamage()
+    /* 
+        Returns true if the player took damage, false otherwise
+    */
+    public bool TakeDamage()
     {
+        // can only take damage when player is in control
+        if (!canMove)
+            return false;
+
         // player still has lives
         if (livesController.UpdateLives(-1) > 0)
         {
             canMove = false;
             animator.SetTrigger("Hurt");
             StartCoroutine(knockbackTimer());
-            return;
+            return true;
         }
 
         // player dies
         LevelFailed();
+        return true;
     }
 
     private void LevelFailed()
@@ -141,13 +155,30 @@ public class PlayerController : MonoBehaviour
         canMove = true;
     }
 
-    void Attack()
+    private void Attack()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
             Debug.Log("Attack");
-            animator.SetTrigger("Attack1");
+            attackHitbox.enabled = true;
+            StartCoroutine(attackTimer());
+            // animator.SetTrigger("Attack1");
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag != "Enemy") return;
+
+        // var enemy = other.GetComponent<EnemyMovement>();
+
+        // enemy.TakeDamage();
+        // knockback.KnockbackEntity(rb, enemy.GetComponent<Rigidbody2D>());
+    }
+
+    IEnumerator attackTimer()
+    {
+        yield return new WaitForSeconds(0.3f);
+        attackHitbox.enabled = false;
+    }
 }

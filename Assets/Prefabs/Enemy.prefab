@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7526938608865365997
+--- !u!1 &867932618
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,55 +8,51 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7526938608865365996}
-  - component: {fileID: 7526938608865365999}
+  - component: {fileID: 867932619}
+  - component: {fileID: 867932620}
   m_Layer: 7
-  m_Name: EdgeCollider
+  m_Name: EdgeDetection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7526938608865365996
+--- !u!4 &867932619
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7526938608865365997}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 867932618}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalPosition: {x: 0.641, y: -0.629, z: 0}
+  m_LocalScale: {x: 1, y: 0.4375, z: 1}
   m_Children: []
   m_Father: {fileID: 7526938609449072820}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &7526938608865365999
-BoxCollider2D:
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!68 &867932620
+EdgeCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7526938608865365997}
+  m_GameObject: {fileID: 867932618}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.81, y: -0.37408984}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.02984345, y: 1.91}
+  m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
+  m_Points:
+  - {x: -0.5, y: 0}
+  - {x: 0.5, y: 0}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!1 &7526938609449072824
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,6 +68,7 @@ GameObject:
   - component: {fileID: 7526938609449072823}
   - component: {fileID: 1707477709}
   - component: {fileID: 3168372043578996704}
+  - component: {fileID: 1814925566801234288}
   m_Layer: 7
   m_Name: Enemy
   m_TagString: Enemy
@@ -90,7 +87,7 @@ Transform:
   m_LocalPosition: {x: -1.13, y: -3.97, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7526938608865365996}
+  - {fileID: 867932619}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -194,9 +191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e016443831568428d8d980386b883c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  XRebound: 10
-  YRebound: 10
+  moveSpeed: 0
+  health: 2
 --- !u!61 &1707477709
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -242,3 +238,17 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1814925566801234288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7526938609449072824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62c91acd8c1eac4baf5d9bb45f785d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XRebound: 10
+  YRebound: 10

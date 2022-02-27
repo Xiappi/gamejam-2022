@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1786079238122382958}
   - component: {fileID: 1786079238122382952}
   - component: {fileID: 1786079238122382953}
+  - component: {fileID: 120945031014407327}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Spike
@@ -83,7 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8754bb52f805ce34e95171166b2d6142, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0
   XRebound: 10
   YRebound: 10
 --- !u!50 &1786079238122382953
@@ -107,6 +107,20 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &120945031014407327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1786079238122382957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c62c91acd8c1eac4baf5d9bb45f785d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  XRebound: 10
+  YRebound: 10
 --- !u!1 &1786079238282919856
 GameObject:
   m_ObjectHideFlags: 0
