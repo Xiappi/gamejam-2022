@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 6181038250014175922}
   - component: {fileID: 6181038250014175929}
   - component: {fileID: 6181038250014175935}
-  - component: {fileID: 130333506}
   - component: {fileID: 8386114204489848074}
   m_Layer: 8
   m_Name: Player
@@ -172,20 +171,7 @@ MonoBehaviour:
   JumpSpeed: 15
   rootL: {fileID: 5038268372947407592}
   rootR: {fileID: 2215924625601876054}
-  CanMove: 1
---- !u!114 &130333506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6181038250014175923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 20d377df7aa7ada47a63968e579183f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
+  canMove: 1
 --- !u!95 &8386114204489848074
 Animator:
   serializedVersion: 3
