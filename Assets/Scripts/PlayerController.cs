@@ -88,6 +88,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 jumVel = new Vector2(0.0f, JumpSpeed);
                 rb.velocity = Vector2.up * jumVel;
                 animator.SetTrigger("Jump");
+                soundController.PlayJumpSound();
             }
 
         }

@@ -23,8 +23,12 @@ public class SoundController : MonoBehaviour
 
     public void PlayJumpSound()
     {
-        // TODO: implement
-        Debug.Log("TODO: player jump sound");
+        audioSources[4].Play();
+    }
+
+    public void PlayWolfSound()
+    {
+        audioSources[5].Play();
     }
 
     public void PlayAttackSound()

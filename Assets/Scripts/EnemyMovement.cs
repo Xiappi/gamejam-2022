@@ -75,6 +75,7 @@ public class EnemyMovement : MonoBehaviour
         if (isDead) return;
 
         anim.SetTrigger("Attack");
+        FindObjectOfType<SoundController>().PlayWolfSound();
         var playerRb = other.gameObject.GetComponent<Rigidbody2D>();
         var playerController = other.gameObject.GetComponent<PlayerController>();
 
