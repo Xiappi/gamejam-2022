@@ -1,0 +1,444 @@
+fileFormatVersion: 2
+guid: 7d9147ee0c6623a428d15afff646543e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3388726815198988812
+    second: Running__Jumping_Animation_Frames_With_Stick_0
+  - first:
+      213: -5471798413825300469
+    second: Running__Jumping_Animation_Frames_With_Stick_1
+  - first:
+      213: 8780550184567579823
+    second: Running__Jumping_Animation_Frames_With_Stick_2
+  - first:
+      213: 5078324184501259741
+    second: Running__Jumping_Animation_Frames_With_Stick_3
+  - first:
+      213: -7928821002416516215
+    second: Running__Jumping_Animation_Frames_With_Stick_4
+  - first:
+      213: -2402092256700340197
+    second: Running__Jumping_Animation_Frames_With_Stick_5
+  - first:
+      213: 947088675312221049
+    second: Running__Jumping_Animation_Frames_With_Stick_6
+  - first:
+      213: 3946060006801759079
+    second: Running__Jumping_Animation_Frames_With_Stick_7
+  - first:
+      213: 7552231181411464179
+    second: Running__Jumping_Animation_Frames_With_Stick_8
+  - first:
+      213: -5950932547085875060
+    second: Running__Jumping_Animation_Frames_With_Stick_9
+  - first:
+      213: -580704908613439370
+    second: Running__Jumping_Animation_Frames_With_Stick_10
+  - first:
+      213: 4771878087140891279
+    second: Running__Jumping_Animation_Frames_With_Stick_11
+  - first:
+      213: -2520460877013468925
+    second: Running__Jumping_Animation_Frames_With_Stick_12
+  - first:
+      213: -3685484420859024192
+    second: Running__Jumping_Animation_Frames_With_Stick_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_0
+      rect:
+        serializedVersion: 2
+        x: 101
+        y: 651
+        width: 146
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f539337ae2d8f0d0800000000000000
+      internalID: -3388726815198988812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_1
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 672
+        width: 139
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b08a56d55544014b0800000000000000
+      internalID: -5471798413825300469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_2
+      rect:
+        serializedVersion: 2
+        x: 433
+        y: 691
+        width: 138
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa424ab1fd7cad970800000000000000
+      internalID: 8780550184567579823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_3
+      rect:
+        serializedVersion: 2
+        x: 578
+        y: 721
+        width: 143
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddd097f80f4d97640800000000000000
+      internalID: 5078324184501259741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_4
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 708
+        width: 146
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9839e479e4b27f190800000000000000
+      internalID: -7928821002416516215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_5
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 679
+        width: 136
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b18e8a1c1dd0aaed0800000000000000
+      internalID: -2402092256700340197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_6
+      rect:
+        serializedVersion: 2
+        x: 1021
+        y: 663
+        width: 148
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97bb7ced12cb42d00800000000000000
+      internalID: 947088675312221049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_7
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 318
+        width: 133
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b5bc74ba833c630800000000000000
+      internalID: 3946060006801759079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_8
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 317
+        width: 155
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3b8adfe3aeec860800000000000000
+      internalID: 7552231181411464179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_9
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 305
+        width: 124
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c88c2a8b06a0a6da0800000000000000
+      internalID: -5950932547085875060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_10
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 303
+        width: 165
+        height: 220
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67035ca56fbe0f7f0800000000000000
+      internalID: -580704908613439370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_11
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 306
+        width: 161
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8ad08776dd193240800000000000000
+      internalID: 4771878087140891279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_12
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 291
+        width: 132
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 309b753bf26850dd0800000000000000
+      internalID: -2520460877013468925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_With_Stick_13
+      rect:
+        serializedVersion: 2
+        x: 575
+        y: 46
+        width: 59
+        height: 235
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cc267d12778adcc0800000000000000
+      internalID: -3685484420859024192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

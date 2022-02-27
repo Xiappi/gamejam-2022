@@ -1,0 +1,420 @@
+fileFormatVersion: 2
+guid: 4726dac22e935aa46a92e0bb7be92ece
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 986298537449160492
+    second: Running__Jumping_Animation_Frames_0
+  - first:
+      213: -2085075398480873163
+    second: Running__Jumping_Animation_Frames_1
+  - first:
+      213: 8580092253324149619
+    second: Running__Jumping_Animation_Frames_2
+  - first:
+      213: 2416241595033921716
+    second: Running__Jumping_Animation_Frames_3
+  - first:
+      213: 5267125334794438231
+    second: Running__Jumping_Animation_Frames_4
+  - first:
+      213: 3559319547369180922
+    second: Running__Jumping_Animation_Frames_5
+  - first:
+      213: -8219756853249924517
+    second: Running__Jumping_Animation_Frames_6
+  - first:
+      213: 3561927671324563676
+    second: Running__Jumping_Animation_Frames_7
+  - first:
+      213: 1866120680194028045
+    second: Running__Jumping_Animation_Frames_8
+  - first:
+      213: -8698602470428258927
+    second: Running__Jumping_Animation_Frames_9
+  - first:
+      213: 6841385316953714849
+    second: Running__Jumping_Animation_Frames_10
+  - first:
+      213: -7056999240949452517
+    second: Running__Jumping_Animation_Frames_11
+  - first:
+      213: -3244985447818209708
+    second: Running__Jumping_Animation_Frames_12
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_0
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 651
+        width: 139
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2ff42f4b4900bd00800000000000000
+      internalID: 986298537449160492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_1
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 672
+        width: 127
+        height: 227
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53934a7e8f25013e0800000000000000
+      internalID: -2085075398480873163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_2
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 691
+        width: 128
+        height: 230
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3738773f17c921770800000000000000
+      internalID: 8580092253324149619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_3
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 721
+        width: 132
+        height: 231
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b8258bcde6388120800000000000000
+      internalID: 2416241595033921716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_4
+      rect:
+        serializedVersion: 2
+        x: 722
+        y: 708
+        width: 147
+        height: 226
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75602e7e596981940800000000000000
+      internalID: 5267125334794438231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_5
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 679
+        width: 136
+        height: 222
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afe4b0f254e356130800000000000000
+      internalID: 3559319547369180922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_6
+      rect:
+        serializedVersion: 2
+        x: 1031
+        y: 663
+        width: 139
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b52a4fd21be8ded80800000000000000
+      internalID: -8219756853249924517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_7
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 318
+        width: 133
+        height: 217
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd85fec58528e6130800000000000000
+      internalID: 3561927671324563676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_8
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 317
+        width: 155
+        height: 202
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d02b9fa1fdac5e910800000000000000
+      internalID: 1866120680194028045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_9
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 305
+        width: 124
+        height: 206
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19dc9cbe32b584780800000000000000
+      internalID: -8698602470428258927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_10
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 302
+        width: 159
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a07994d2bb71fe50800000000000000
+      internalID: 6841385316953714849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_11
+      rect:
+        serializedVersion: 2
+        x: 866
+        y: 306
+        width: 161
+        height: 205
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b11b1077490801e90800000000000000
+      internalID: -7056999240949452517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Running__Jumping_Animation_Frames_12
+      rect:
+        serializedVersion: 2
+        x: 1107
+        y: 291
+        width: 124
+        height: 215
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 456db798dee77f2d0800000000000000
+      internalID: -3244985447818209708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
