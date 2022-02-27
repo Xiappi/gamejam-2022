@@ -36,6 +36,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Run();
+        Attack();
 
         float playerSpeed = Mathf.Abs(rb.velocity.x);
 
@@ -137,6 +138,15 @@ public class PlayerController : MonoBehaviour
     {
         yield return new WaitForSeconds(_hitTimeout);
         canMove = true;
+    }
+
+    void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Debug.Log("Attack");
+            animator.SetTrigger("Attack1");
+        }
     }
 
 }
