@@ -10,15 +10,18 @@ public class EnemyMovement : MonoBehaviour
 
     Rigidbody2D rb;
     private BoxCollider2D head;
+    private Animator anim;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         head = GetComponent<BoxCollider2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         rb.velocity = new Vector2(moveSpeed * transform.localScale.x, 0);
+        anim.SetFloat("Speed", rb.velocity.magnitude);
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -42,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void DealDamage(Collision2D other)
     {
-
+        anim.SetTrigger("Attack");
         var playerRb = other.gameObject.GetComponent<Rigidbody2D>();
         var playerController = other.gameObject.GetComponent<PlayerController>();
 
