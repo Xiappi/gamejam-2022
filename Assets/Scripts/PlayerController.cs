@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     public bool CanMove = true;
     private bool canJump = true;
+    private int jumpTime;
     void Start()
     {
 
@@ -71,9 +72,9 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            if (canJump && onGround)
+            if (jumpTime<1)
             {
-                canJump = false;
+                jumpTime += 1;
                 Vector2 jumVel = new Vector2(0.0f, JumpSpeed);
                 rb.velocity = Vector2.up * jumVel;
 
@@ -90,8 +91,7 @@ public class PlayerController : MonoBehaviour
 
         if (hit.collider != null)
         {
-            onGround = true;
-            canJump = true;
+            jumpTime = 0;
             animator.SetBool("Grounded", true);
         }
         else
