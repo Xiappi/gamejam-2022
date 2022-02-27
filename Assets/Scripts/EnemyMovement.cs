@@ -33,15 +33,10 @@ public class EnemyMovement : MonoBehaviour
         if (other.gameObject.tag == "Player")
             DealDamage(other);
 
-
-
-
     }
 
     private void DealDamage(Collision2D other)
     {
-        //TODO: reduce health/sheep
-
         var playerRb = other.gameObject.GetComponent<Rigidbody2D>();
         var playerController = other.gameObject.GetComponent<PlayerController>();
 
@@ -49,16 +44,9 @@ public class EnemyMovement : MonoBehaviour
         var vector = new Vector2(XRebound * Mathf.Sign(direction), YRebound);
         playerRb.velocity = vector;
 
-        playerController.CanMove = false;
         playerController.TakeDamage();
-        StartCoroutine(knockbackTimer(0.5f, playerController));
 
     }
 
-    IEnumerator knockbackTimer(float x, PlayerController pc)
-    {
-        yield return new WaitForSeconds(x);
-        pc.CanMove = true;
-    }
 
 }

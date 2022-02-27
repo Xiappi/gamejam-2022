@@ -13,11 +13,14 @@ public class PlayerController : MonoBehaviour
 
     private Animator animator;
     private Rigidbody2D rb;
-    private bool onGround;
     private LivesController livesController;
 
-    public bool CanMove = true;
+    private bool canMove = true;
     private bool canJump = true;
+
+    private bool onGround;
+
+    private const float _hitTimeout = 0.5f;
     void Start()
     {
 
@@ -51,7 +54,7 @@ public class PlayerController : MonoBehaviour
 
     void Run()
     {
-        if (!CanMove) return;
+        if (!canMove) return;
 
         float moveDir = Input.GetAxisRaw("Horizontal");
         Vector2 PlayerVel = new Vector2(moveDir * moveSpeed, rb.velocity.y);
@@ -71,7 +74,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Jump"))
         {
-            if (canJump && onGround)
+            if (canJump && onGround && canMove)
             {
                 canJump = false;
                 Vector2 jumVel = new Vector2(0.0f, JumpSpeed);
@@ -109,8 +112,23 @@ public class PlayerController : MonoBehaviour
 
     public void TakeDamage()
     {
-        if (livesController.UpdateLives(-1) <= 0)
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        // player still has lives
+        if (livesController.UpdateLives(-1) > 0)
+        {
+            canMove = false;
+            StartCoroutine(knockbackTimer());
+            return;
+        }
+
+        // player dies
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+    }
+
+    IEnumerator knockbackTimer()
+    {
+        yield return new WaitForSeconds(_hitTimeout);
+        canMove = true;
     }
 
 }
