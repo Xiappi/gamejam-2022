@@ -45,7 +45,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void DealDamage(Collision2D other)
     {
-
+        anim.SetTrigger("Attack");
         var playerRb = other.gameObject.GetComponent<Rigidbody2D>();
         var playerController = other.gameObject.GetComponent<PlayerController>();
 
